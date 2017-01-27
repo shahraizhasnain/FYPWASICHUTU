@@ -40,21 +40,22 @@ namespace SaudaMaster.Adapter
 
             foreach (var item in getcategory)
             {
-                result.Add(new CategoryViewModel {
+                result.Add(new CategoryViewModel
+                {
 
                     CategoryID = item.CategoryID,
                     CategoryName = item.CategoryName,
                     CategoryDisplayName = item.CategoryDisplayName,
                     CategoryImage = item.CategoryImage
                 });
-            } 
-            return result ;
+            }
+            return result;
         }
 
         public CategoryViewModel EditCategory(int CategoryID)
         {
             var getcategory = CategoryRepository.GetById(CategoryID);
-            CategoryViewModel  category = new CategoryViewModel();
+            CategoryViewModel category = new CategoryViewModel();
             category.CategoryID = getcategory.CategoryID;
             category.StoreID = getcategory.StoreID;
             category.CategoryName = getcategory.CategoryName;
@@ -65,14 +66,29 @@ namespace SaudaMaster.Adapter
 
         public void EditCategory(CategoryViewModel CategoryViewModel)
         {
-                Category  category = new Category();
-                category.CategoryID = CategoryViewModel.CategoryID;
-                category.StoreID = CategoryViewModel.StoreID;
-                category.CategoryName = CategoryViewModel.CategoryName;
-                category.CategoryDisplayName = CategoryViewModel.CategoryDisplayName;
-                category.CategoryImage = CategoryViewModel.CategoryImage;
-                CategoryRepository.Update(category);
-                UnityOfWork.Commit();
+            Category category = new Category();
+            category.CategoryID = CategoryViewModel.CategoryID;
+            category.StoreID = CategoryViewModel.StoreID;
+            category.CategoryName = CategoryViewModel.CategoryName;
+            category.CategoryDisplayName = CategoryViewModel.CategoryDisplayName;
+            category.CategoryImage = CategoryViewModel.CategoryImage;
+            CategoryRepository.Update(category);
+            UnityOfWork.Commit();
+        }
+
+        public bool CheckDuplicate(string Categoryname, int storeid)
+        {
+            var Category = CategoryRepository.GetAll().Where(x => x.StoreID == storeid).ToList();
+            var exist = from c in Category where c.CategoryName == Categoryname select c;
+
+            if (exist.Count() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void DeleteCategory(int CategoryID)
@@ -81,5 +97,6 @@ namespace SaudaMaster.Adapter
             CategoryRepository.Delete(CategoryRepository.GetById(CategoryID));
             UnityOfWork.Commit();
         }
+       
     }
 }

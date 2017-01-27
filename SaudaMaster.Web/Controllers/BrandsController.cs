@@ -42,28 +42,43 @@ namespace SaudaMaster.Web.Controllers
         [HttpPost]
         public ActionResult Create(BrandViewModel collection, HttpPostedFileBase file)
         {
+            BrandViewModel viewModel = new BrandViewModel();
 
             if (ModelState.IsValid)
             {
                 if (file.ContentLength > 0)
                 {
-                    
-                    if(brandServices.CheckDuplicate(collection.BrandName) == false) { 
-                    var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(("/Content/img"), fileName);
-                    var SavePath = Path.Combine(Server.MapPath("~/Content/img"), fileName);
-                    collection.BrandImage = path;
-                    file.SaveAs(SavePath);
-                    collection.BrandID = Convert.ToInt16(Session["BrandID"]);
-                    brandServices.CreateBrand(collection);
+
+                    if (brandServices.CheckDuplicate(collection.BrandName) == false)
+                    {
+                        var fileName = Path.GetFileName(file.FileName);
+                        var path = Path.Combine(("/Content/img"), fileName);
+                        var SavePath = Path.Combine(Server.MapPath("~/Content/img"), fileName);
+                        collection.BrandImage = path;
+                        file.SaveAs(SavePath);
+                        collection.BrandID = Convert.ToInt16(Session["BrandID"]);
+                        brandServices.CreateBrand(collection);
                     }
                     else
                     {
-                        RedirectToAction("Index");
+                      ModelState.AddModelError("duplicate", "This brand already exist");
+                        viewModel.BrandList = brandServices.ReturnAllBrands().ToList();
+                        return View("Index", viewModel);
                     }
                 }
+
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+
+
+            else
+
+            {
+                viewModel.BrandList = brandServices.ReturnAllBrands().ToList();
+                //viewModel.BrandImage = 
+                return View("Index", viewModel);
+            }
+
         }
 
         //public ActionResult Delete(int BrandID)

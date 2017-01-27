@@ -31,8 +31,7 @@ namespace SaudaMaster.Data
         public string CustomerUserName { get; set; }
         public string CustomerPassword { get; set; }
         public string CustomerLastLogin { get; set; }
-        public byte[] CustomerSecurityCode { get; set; }
-        public Nullable<bool> CustomerActive { get; set; }
+        public bool CustomerActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CustomerStoreRelation> CustomerStoreRelations { get; set; }

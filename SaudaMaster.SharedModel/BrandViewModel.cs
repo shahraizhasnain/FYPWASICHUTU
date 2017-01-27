@@ -20,12 +20,13 @@ namespace SaudaMaster.SharedModel
 
         [Required]
         [DisplayName("Brand Description")]
+		[StringLength(50, ErrorMessage = "Description cannot be longer than 10 characters.")]
         public string BrandDescription { get; set; }
 
-        
-        
-        public string BrandImage { get; set; }
 
+        //[Required]
+        public string BrandImage { get; set; }
+	
         public List<BrandViewModel> BrandList { get; set; }
     }
 }

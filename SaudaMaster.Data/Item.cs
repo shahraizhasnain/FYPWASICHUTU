@@ -22,9 +22,10 @@ namespace SaudaMaster.Data
         public string ItemName { get; set; }
         public string ItemDescription { get; set; }
         public string ItemPrice { get; set; }
-        public bool ItemAvailability { get; set; }
-        public decimal ItemDiscountPercentage { get; set; }
+        public Nullable<bool> ItemAvailability { get; set; }
+        public Nullable<decimal> ItemDiscountPercentage { get; set; }
         public string ItemImage { get; set; }
+        public string Promotion { get; set; }
     
         public virtual Brand Brand { get; set; }
         public virtual Category Category { get; set; }

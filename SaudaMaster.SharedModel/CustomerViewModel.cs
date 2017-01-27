@@ -15,5 +15,7 @@ namespace SaudaMaster.SharedModel
         public string CustomerContact { get; set; }
         [Required]
         public string CustomerAddress1 { get; set; }
+
+        public List<CustomerViewModel> CustomerList { get; set; }
     }
 }

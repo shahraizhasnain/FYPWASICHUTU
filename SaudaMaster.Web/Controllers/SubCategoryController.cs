@@ -14,7 +14,7 @@ namespace SaudaMaster.Web.Controllers
     {
         //private ICategoryService categoryservices;
         private ISubCategoryService subcategoryservices;
-      
+
 
         public SubCategoryController()
             : this(new SubCategoryServices())
@@ -29,41 +29,91 @@ namespace SaudaMaster.Web.Controllers
 
         public ActionResult Index()
         {
-            
-            if (Session["StoreID"] != null) {
-                    int store = Convert.ToInt32(Session["StoreID"]);                    
-                    SubCategoryViewModel viewModel = new SubCategoryViewModel();
-                    CategoryViewModel category = new CategoryViewModel();
-                    category.CategoryList = subcategoryservices.ReturnAllCategories(store).ToList();
-                    ViewBag.cat = category.CategoryList;
-                    viewModel.SubCategoryList = subcategoryservices.ReturnAllSubCategory(store).ToList();
-                    return View(viewModel);
+
+            if (Session["StoreID"] != null)
+            {
+                int store = Convert.ToInt32(Session["StoreID"]);
+                SubCategoryViewModel viewModel = new SubCategoryViewModel();
+                CategoryViewModel category = new CategoryViewModel();
+                category.CategoryList = subcategoryservices.ReturnAllCategories(store).ToList();
+                ViewBag.cat = category.CategoryList;
+                viewModel.SubCategoryList = subcategoryservices.ReturnAllSubCategory(store).ToList();
+                return View(viewModel);
             }
             else
             {
-                return RedirectToAction("Index","Login");
+                return RedirectToAction("Index", "Login");
             }
         }
 
         [HttpPost]
         public ActionResult Create(SubCategoryViewModel collection, HttpPostedFileBase file)
         {
+            int store = Convert.ToInt32(Session["StoreID"]);
+            SubCategoryViewModel viewModel = new SubCategoryViewModel();
+            CategoryViewModel category = new CategoryViewModel();
+
             if (ModelState.IsValid)
             {
-                if (file.ContentLength > 0)
+                if (collection.SubCategoryID == 0)
                 {
-                    var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(("/Content/img"), fileName);
-                    var SavePath = Path.Combine(Server.MapPath("~/Content/img"), fileName);
-                    collection.SubCategoryImage = path;
-                    file.SaveAs(SavePath);
-                    subcategoryservices.CreateSubCategory(collection);
+                   
+                    if (file != null)
+                    {
+                        // if (subcategoryservices.CheckDuplicate(collection.SubCategoryName, store)==false)
+                        if (subcategoryservices.CheckDuplicate(collection.SubCategoryName, collection.CategoryID) == false)
+                        {
+                            var fileName = Path.GetFileName(file.FileName);
+                            var path = Path.Combine(("/Content/img"), fileName);
+                            var SavePath = Path.Combine(Server.MapPath("~/Content/img"), fileName);
+                            collection.SubCategoryImage = path;
+                            file.SaveAs(SavePath);
+                            subcategoryservices.CreateSubCategory(collection);
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("duplicate", "This SubCategory already exist");
+                            category.CategoryList = subcategoryservices.ReturnAllCategories(store).ToList();
+                            ViewBag.cat = category.CategoryList;
+                            viewModel.SubCategoryList = subcategoryservices.ReturnAllSubCategory(store).ToList();
+                            return View("Index", viewModel);
+                        }
+                    }
                 }
+                else
+                {
+                   
+                     
+                        if (file != null)
+                        {
+
+                            var fileName = Path.GetFileName(file.FileName);
+                            var path = Path.Combine(("/Content/img"), fileName);
+                            var SavePath = Path.Combine(Server.MapPath("~/Content/img"), fileName);
+                            collection.SubCategoryImage = path;
+                            file.SaveAs(SavePath);
+                            subcategoryservices.EditSubCategory(collection);
+                        }
+                        else
+                        {
+                            subcategoryservices.EditSubCategory(collection);
+                        }
+
+                    
+                }
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+            else
+            {
+                category.CategoryList = subcategoryservices.ReturnAllCategories(store).ToList();
+                ViewBag.cat = category.CategoryList;
+                viewModel.SubCategoryList = subcategoryservices.ReturnAllSubCategory(store).ToList();
+                return View("Index", viewModel);
+            }
+
         }
-        
-       public ActionResult Edit(int SubCategoryID)
+
+        public ActionResult Edit(int SubCategoryID)
         {
             int store = Convert.ToInt32(Session["StoreID"]);
             //SubCategoryViewModel data = new SubCategoryViewModel();

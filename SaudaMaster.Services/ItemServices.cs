@@ -65,6 +65,20 @@ namespace SaudaMaster.Services
         {
             return brandAdapter.ReturnAllBrands();
         }
+		
+		  public bool CheckDuplicate(string itemname, int subcategoryid)	
+	        {			
+	            return ItemAdapter.CheckDuplicate(itemname, subcategoryid);			
+	        }
+        public void GetDiscount(DiscountViewModel itemViewModel)
+        {
+            ItemAdapter.GetDiscount(itemViewModel);
+        }
+        public void GetPromotion(PromotionViewModel ViewModel)
+        {
+
+            ItemAdapter.GetPromotion(ViewModel);
+        }
     }
     public interface IItemService
     {
@@ -77,7 +91,10 @@ namespace SaudaMaster.Services
         ItemViewModel EditItem(int ItemID);
         void EditItem(ItemViewModel itemViewModel);
         void DeleteItem(int itemID);
-        //bool CheckDuplicate(BrandViewModel brand);
-        //bool CheckDuplicateForUpdate(string brand, int id);
+		bool CheckDuplicate(string itemname, int subcategoryid);
+
+        void GetDiscount(DiscountViewModel itemViewModel);
+        void GetPromotion(PromotionViewModel ViewModel);
+
     }
 }

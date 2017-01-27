@@ -51,6 +51,8 @@
   <ItemGroup>
     <Compile Include="CustomerAdapter.cs" />
     <Compile Include="ListDetailAdapter.cs" />
+    <Compile Include="ListHeaderAdapter.cs" />
+    <Compile Include="ListStoreAssociationadapter.cs" />
     <Compile Include="StoreAdapter.cs" />
     <Compile Include="BrandAdapter.cs" />
     <Compile Include="CategoryAdapter.cs" />

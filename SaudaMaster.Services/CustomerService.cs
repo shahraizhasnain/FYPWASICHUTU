@@ -22,10 +22,15 @@ namespace SaudaMaster.Services
         {
             customerAdapter.RegisterCustomer(customerViewModel);
         }
+        public IEnumerable<CustomerViewModel> GetAllCustomer()
+        {
+            return customerAdapter.GetAllCustomer();
+        }
     }
 
     public interface ICustomerService
     {
         void RegisterCustomer(CustomerViewModel customerViewModel);
+        IEnumerable<CustomerViewModel> GetAllCustomer();
     }
 }

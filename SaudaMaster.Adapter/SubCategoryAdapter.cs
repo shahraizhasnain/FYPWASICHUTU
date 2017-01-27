@@ -3,7 +3,7 @@ using System.Linq;
 using SaudaMaster.Infrastructure.Common;
 using SaudaMaster.Infrastructure.Repository;
 using SaudaMaster.SharedModel;
-using SaudaMaster.Data; 
+using SaudaMaster.Data;
 
 namespace SaudaMaster.Adapter
 {
@@ -13,7 +13,7 @@ namespace SaudaMaster.Adapter
         private ISubCategoryRepository SubCategoryRepository;
         private IUnityOfWork UnityOfWork;
         ItemAdapter del = new ItemAdapter();
-        
+
 
         public SubCategoryAdapter()
         {
@@ -27,15 +27,15 @@ namespace SaudaMaster.Adapter
             SubCategory subcategory = new SubCategory()
             {
                 SubCategoryID = collection.SubCategoryID,
-                CategoryID = collection.CategoryID   , /*SubCategoryViewModel.CategoryID,*/
+                CategoryID = collection.CategoryID, /*SubCategoryViewModel.CategoryID,*/
                 SubCategoryDisplayName = collection.SubCategoryDisplayName,
                 SubCategoryName = collection.SubCategoryName,
                 SubCategoryImage = collection.SubCategoryImage,
             };
             SubCategoryRepository.Add(subcategory);
             UnityOfWork.Commit();
-        }      
-        
+        }
+
         public IEnumerable<SubCategoryViewModel> ReturnAllSubCategory(int store)
         {
             var subcategory = SubCategoryRepository.GetAll();
@@ -100,6 +100,26 @@ namespace SaudaMaster.Adapter
             subcategory.CategoryID = SubCategoryViewModel.CategoryID;
             SubCategoryRepository.Update(subcategory);
             UnityOfWork.Commit();
+
+        }
+
+        public bool CheckDuplicate(string SubCategoryname, int categoryid)
+        {
+            //w.r.t to storeid			
+            //   var subcategory = SubCategoryRepository.GetAll().Where(x => x.Category.StoreID == storeid).ToList();			
+
+            //w.r.t to categoryid			
+            var subcategory = SubCategoryRepository.GetAll().Where(x => x.CategoryID == categoryid).ToList();
+            var exist = from sc in subcategory where sc.SubCategoryName == SubCategoryname select sc;
+
+            if (exist.Count() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
         }
 

@@ -52,6 +52,11 @@ namespace SaudaMaster.Services
         {
             subcategoryadapter.DeleteSubCategory(subcategoryID);
         }
+		
+		 public bool CheckDuplicate(string SubCategoryname, int categoryid)	
+	        {			
+	            return subcategoryadapter.CheckDuplicate(SubCategoryname, categoryid);			
+	        }
     }
 
     public interface ISubCategoryService
@@ -62,12 +67,8 @@ namespace SaudaMaster.Services
         IEnumerable<SubCategoryViewModel> ReturnAllSubCategoriesw(int categoryID);
         void EditSubCategory(SubCategoryViewModel subCategoryViewModel);
         SubCategoryViewModel EditSubCategory(int SubCategoryID );
-        //IEnumerable<SubCategoryViewModel> dropcategory();
-        //BrandViewModel EditBrand(int BrandID);
-        //void EditBrand(BrandViewModel brandViewModel);
         void DeleteSubCategory(int subcategoryID);
-        //bool CheckDuplicate(BrandViewModel brand);
-        //bool CheckDuplicateForUpdate(string brand, int id);
+		bool CheckDuplicate(string SubCategoryname, int categoryid);
     }
 }
 

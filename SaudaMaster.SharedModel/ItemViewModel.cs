@@ -33,10 +33,12 @@ namespace SaudaMaster.SharedModel
 
         [Required]
         [DisplayName("Item Description")]
+		[StringLength(250, ErrorMessage = "Description cannot be longer than 10 characters.")]
         public string ItemDescription { get; set; }
 
         [Required]
         [DisplayName("Price")]
+		[RegularExpression("^[0-9]*$", ErrorMessage = "input valid value ")]
         public string ItemPrice { get; set; }
 
         [Required]
@@ -46,6 +48,9 @@ namespace SaudaMaster.SharedModel
         [Required]
         [DisplayName("Item Discount Percentage")]
         public decimal ItemDiscountPercentage { get; set; }
+
+        
+        public string Promotion { get; set; }
 
         public string ItemImage { get; set; }
 

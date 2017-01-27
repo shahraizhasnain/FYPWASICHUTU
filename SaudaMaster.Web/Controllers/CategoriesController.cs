@@ -33,7 +33,8 @@ namespace SaudaMaster.Web.Controllers
                 viewModel.CategoryList = CategoryServices.ReturnAllCategories(store).ToList();
 
                 return View(viewModel);
-            } else
+            }
+            else
             {
                 return RedirectToAction("Index", "Login");
             }
@@ -42,42 +43,63 @@ namespace SaudaMaster.Web.Controllers
         [HttpPost]
         public ActionResult Create(CategoryViewModel collection, HttpPostedFileBase file)
         {
+            int store = Convert.ToInt32(Session["StoreID"]);
+            CategoryViewModel viewModel = new CategoryViewModel();
 
             if (ModelState.IsValid)
             {
-                if(collection.CategoryID == 0)
-                { 
-                if (file != null)
-                {
-                    var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(("/Content/img"), fileName);
-                    var SavePath = Path.Combine(Server.MapPath("~/Content/img"), fileName);
-                    collection.CategoryImage = path;
-                    file.SaveAs(SavePath);
-                    collection.CategoryID = Convert.ToInt16(Session["CategoryID"]);
-                    collection.StoreID = Convert.ToInt32(Session["StoreID"]);
-                    CategoryServices.CreateCategory(collection);
-                    }
-                    
-                }
-                else
+                if (collection.CategoryID == 0)
                 {
                     if (file != null)
                     {
-                        var fileName = Path.GetFileName(file.FileName);
-                        var path = Path.Combine(("/Content/img"), fileName);
-                        var SavePath = Path.Combine(Server.MapPath("~/Content/img"), fileName);
-                        collection.CategoryImage = path;
-                        file.SaveAs(SavePath);
-
+                        if (CategoryServices.CheckDuplicate(collection.CategoryName, store) == false)
+                        {
+                            var fileName = Path.GetFileName(file.FileName);
+                            var path = Path.Combine(("/Content/img"), fileName);
+                            var SavePath = Path.Combine(Server.MapPath("~/Content/img"), fileName);
+                            collection.CategoryImage = path;
+                            file.SaveAs(SavePath);
+                            collection.CategoryID = Convert.ToInt16(Session["CategoryID"]);
+                            collection.StoreID = Convert.ToInt32(Session["StoreID"]);
+                            CategoryServices.CreateCategory(collection);
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("duplicate", "This Category already exist");
+                            viewModel.CategoryList = CategoryServices.ReturnAllCategories(store).ToList();
+                            return View("Index", viewModel);
+                        }
                     }
-
-                    CategoryServices.EditCategory(collection);
                 }
+                else
+                {
+                  
+                        if (file != null)
+                        {
+                            var fileName = Path.GetFileName(file.FileName);
+                            var path = Path.Combine(("/Content/img"), fileName);
+                            var SavePath = Path.Combine(Server.MapPath("~/Content/img"), fileName);
+                            collection.CategoryImage = path;
+                            file.SaveAs(SavePath);
+                            CategoryServices.EditCategory(collection);
+                        }
+                        else
+                        {
+                            CategoryServices.EditCategory(collection);
+                        }
+                    
+                    
+                }
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
-        }
+            else
+            {
+                viewModel.CategoryList = CategoryServices.ReturnAllCategories(store).ToList();
+                return View("index", viewModel);
+            }
 
+
+        }
         public ActionResult Delete(int CategoryID)
         {
             CategoryServices.Delete(CategoryID);

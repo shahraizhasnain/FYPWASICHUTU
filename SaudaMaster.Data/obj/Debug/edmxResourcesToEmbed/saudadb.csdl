@@ -32,14 +32,13 @@
     <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CustomerContact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CustomerAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="CustomerAddress2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="CustomerNIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="CustomerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="CustomerUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="CustomerPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="CustomerLastLogin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="CustomerSecurityCode" Type="Binary" MaxLength="50" FixedLength="false" />
-    <Property Name="CustomerActive" Type="Boolean" />
+    <Property Name="CustomerAddress2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerNIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerLastLogin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerActive" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="CustomerStoreRelations" Relationship="Self.FK_CustomerStoreRelation_Customer" FromRole="Customer" ToRole="CustomerStoreRelation" />
     <NavigationProperty Name="ListHeaders" Relationship="Self.FK_ListHeader_Customer" FromRole="Customer" ToRole="ListHeader" />
   </EntityType>
@@ -65,15 +64,16 @@
     <Property Name="SubCategoryID" Type="Int32" Nullable="false" />
     <Property Name="BrandID" Type="Int32" Nullable="false" />
     <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ItemDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ItemPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ItemAvailability" Type="Boolean" Nullable="false" />
-    <Property Name="ItemDiscountPercentage" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-    <Property Name="ItemImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ItemDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ItemPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ItemAvailability" Type="Boolean" />
+    <Property Name="ItemDiscountPercentage" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ItemImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Brand" Relationship="Self.FK_Item_Brand" FromRole="Item" ToRole="Brand" />
     <NavigationProperty Name="Category" Relationship="Self.FK_Item_Category" FromRole="Item" ToRole="Category" />
     <NavigationProperty Name="Store" Relationship="Self.FK_Item_Store" FromRole="Item" ToRole="Store" />
     <NavigationProperty Name="SubCategory" Relationship="Self.FK_Item_SubCategory" FromRole="Item" ToRole="SubCategory" />
+    <Property Name="Promotion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="ListDetail">
     <Key>
@@ -141,16 +141,6 @@
     <Property Name="SubCategoryImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Category" Relationship="Self.FK_SubCategory_Category" FromRole="SubCategory" ToRole="Category" />
     <NavigationProperty Name="Items" Relationship="Self.FK_Item_SubCategory" FromRole="SubCategory" ToRole="Item" />
-  </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <Association Name="FK_Item_Brand">
     <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
@@ -307,7 +297,6 @@
     <EntitySet Name="ListStoreAssociations" EntityType="Self.ListStoreAssociation" />
     <EntitySet Name="Stores" EntityType="Self.Store" />
     <EntitySet Name="SubCategories" EntityType="Self.SubCategory" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <AssociationSet Name="FK_Item_Brand" Association="Self.FK_Item_Brand">
       <End Role="Brand" EntitySet="Brands" />
       <End Role="Item" EntitySet="Items" />

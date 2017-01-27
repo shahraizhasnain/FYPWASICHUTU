@@ -19,3 +19,38 @@ C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\Sa
 C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\System.Web.WebPages.Deployment.dll
 C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\obj\Debug\SaudaMaster.SharedModel.dll
 C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\obj\Debug\SaudaMaster.SharedModel.pdb
+D:\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\SaudaMaster.SharedModel.dll
+D:\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\SaudaMaster.SharedModel.pdb
+D:\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\System.Web.Mvc.dll
+D:\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\System.Web.Razor.dll
+D:\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\System.Web.WebPages.Razor.dll
+D:\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\System.Web.WebPages.dll
+D:\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\obj\Debug\SaudaMaster.SharedModel.dll
+D:\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\obj\Debug\SaudaMaster.SharedModel.pdb
+C:\Users\col\Desktop\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\SaudaMaster.SharedModel.dll
+C:\Users\col\Desktop\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\SaudaMaster.SharedModel.pdb
+C:\Users\col\Desktop\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\System.Web.Razor.dll
+C:\Users\col\Desktop\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\col\Desktop\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\System.Web.WebPages.dll
+C:\Users\col\Desktop\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\col\Desktop\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\col\Desktop\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\obj\Debug\SaudaMaster.SharedModel.csprojResolveAssemblyReference.cache
+C:\Users\col\Desktop\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\obj\Debug\SaudaMaster.SharedModel.dll
+C:\Users\col\Desktop\wasi 23-1-2017\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\obj\Debug\SaudaMaster.SharedModel.pdb
+C:\Users\shahr\Desktop\1-25-2017 updates\ASASA-master\wasi\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\SaudaMaster.SharedModel.dll
+C:\Users\shahr\Desktop\1-25-2017 updates\ASASA-master\wasi\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\SaudaMaster.SharedModel.pdb
+C:\Users\shahr\Desktop\1-25-2017 updates\ASASA-master\wasi\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\System.Web.Mvc.dll
+C:\Users\shahr\Desktop\1-25-2017 updates\ASASA-master\wasi\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\System.Web.Razor.dll
+C:\Users\shahr\Desktop\1-25-2017 updates\ASASA-master\wasi\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\shahr\Desktop\1-25-2017 updates\ASASA-master\wasi\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\System.Web.WebPages.dll
+C:\Users\shahr\Desktop\1-25-2017 updates\ASASA-master\wasi\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\shahr\Desktop\1-25-2017 updates\ASASA-master\wasi\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\shahr\Desktop\1-25-2017 updates\ASASA-master\wasi\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\obj\Debug\SaudaMaster.SharedModel.dll
+C:\Users\shahr\Desktop\1-25-2017 updates\ASASA-master\wasi\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\obj\Debug\SaudaMaster.SharedModel.pdb
+C:\Users\col\Desktop\1-25-2017 updates\ASASA-master\wasi\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\SaudaMaster.SharedModel.dll
+C:\Users\col\Desktop\1-25-2017 updates\ASASA-master\wasi\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\bin\Debug\SaudaMaster.SharedModel.pdb
+C:\Users\col\Desktop\1-25-2017 updates\ASASA-master\wasi\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\obj\Debug\SaudaMaster.SharedModel.csprojResolveAssemblyReference.cache
+C:\Users\col\Desktop\1-25-2017 updates\ASASA-master\wasi\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\obj\Debug\SaudaMaster.SharedModel.dll
+C:\Users\col\Desktop\1-25-2017 updates\ASASA-master\wasi\SaudaMasterApp 15-1-2017\SaudaMaster.SharedModel\obj\Debug\SaudaMaster.SharedModel.pdb

@@ -22,49 +22,54 @@
                     </div>
 
                     <div class="form-group">
-                      
+
                         <label class="control-label col-md-2">Category Name</label>
                         <div class="col-md-10">
-                            @Html.DropDownListFor(m => m.CategoryID , new SelectList(ViewBag.cat,"CategoryID","CategoryName"), new { @class = "form-control input-lg m-bot15" })
+                            @Html.DropDownListFor(m => m.CategoryID, new SelectList(ViewBag.cat, "CategoryID", "CategoryName"), new { @class = "form-control input-lg m-bot15", })
                             @*@Html.DropDownList("Category", new SelectList(ViewBag.data, "CategoryID", "CategoryName"), new { @class = "form-control input-lg m-bot15" })*@
                         </div>
-                        </div>
-                   
+                    </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.SubCategoryName, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.SubCategoryName, new { htmlAttributes = new { @class = "form-control input-lg m-bot15" } })
-                                @Html.ValidationMessageFor(model => model.SubCategoryName, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.SubCategoryDisplayName, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.SubCategoryDisplayName, new { htmlAttributes = new { @class = "form-control input-lg m-bot15" } })
-                                @Html.ValidationMessageFor(model => model.SubCategoryDisplayName, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        @*<div class="form-group">
-                @Html.LabelFor(model => model.BrandDescription, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.BrandDescription, new { htmlAttributes = new { @class = "form-control input-lg m-bot15" } })
-                    @Html.ValidationMessageFor(model => model.BrandDescription, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.SubCategoryImage, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                <input type="file" name="file">
-                                <p class="help-block">Insert SubCategory Image.</p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Create" class="btn btn-info" />
-                            </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SubCategoryName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SubCategoryName, new { htmlAttributes = new { @class = "form-control input-lg m-bot15", @required = "required" } })
+                            @Html.ValidationMessage("duplicate", new { @class = "text-danger" })
+                            
+                              @Html.ValidationMessageFor(model => model.SubCategoryName, "", new { @class = "text-danger" })
                         </div>
                     </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SubCategoryDisplayName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SubCategoryDisplayName, new { htmlAttributes = new { @class = "form-control input-lg m-bot15", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.SubCategoryDisplayName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    @*<div class="form-group">
+                            @Html.LabelFor(model => model.BrandDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.BrandDescription, new { htmlAttributes = new { @class = "form-control input-lg m-bot15" } })
+                                @Html.ValidationMessageFor(model => model.BrandDescription, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SubCategoryImage, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="file" name="file" id="fileInput" accept="image/*" >
+                            <p class="help-block">Insert SubCategory Image.</p>
+                            @Html.HiddenFor(model => model.SubCategoryImage)
+
+                            <img src="@(Model.SubCategoryImage)" height="100" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" id="c_scat" onclick="return check()" class="btn btn-info" />
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     </div>
@@ -73,3 +78,30 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+@@
+<script type="text/javascript">
+
+    function check() {
+        var fileName = document.getElementById("fileInput").value
+        //if (fileName == "") {
+        //    alert("Browse to upload a valid File");
+        //    return false;
+        //}
+        //else
+            if (fileName.split(".")[1].toUpperCase() == "PNG")
+            return true;
+        else if (fileName.split(".")[1].toUpperCase() == "JPG")
+            return true;
+        else if (fileName.split(".")[1].toUpperCase() == "GIF")
+            return true;
+        else if (fileName.split(".")[1].toUpperCase() == "JPEG")
+            return true;
+        else {
+            alert("File with " + fileName.split(".")[1] + " is invalid. Upload a validfile ");
+            return false;
+        }
+        return true;
+    }
+
+</script>

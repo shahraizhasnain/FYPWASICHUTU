@@ -45,5 +45,23 @@ namespace SaudaMaster.Adapter
             }
         
         } 
+        public IEnumerable<CustomerViewModel> GetAllCustomer()
+        {
+            var Customers = CustomerRepository.GetAll();
+            List<CustomerViewModel> Customerviewmodel = new List<CustomerViewModel>();
+
+            foreach(var customer in Customers)
+            {
+                Customerviewmodel.Add(new CustomerViewModel
+                {
+                    CustomerName = customer.CustomerName,
+                    CustomerContact = customer.CustomerContact,
+                    CustomerAddress1=customer.CustomerAddress1
+                
+                });
+            }
+            return Customerviewmodel;
+
+        }
     }
 }

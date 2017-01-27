@@ -39,6 +39,8 @@ namespace SaudaMaster.Web.Controllers
                 LoginViewModel viewModel = loginService.Authenticate(loginViewModel);
                 if (viewModel.StoreID == 0)
                 {
+                    ModelState.AddModelError("", "Invalid User Name or Password");
+
                     return View();
                 }
                 else

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp\SaudaMaster.Data\saudadb.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\col\Desktop\1-25-2017 updates\ASASA-master\wasi\SaudaMasterApp 15-1-2017\SaudaMaster.Data\saudadb.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

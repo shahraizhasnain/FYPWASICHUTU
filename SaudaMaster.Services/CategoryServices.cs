@@ -42,6 +42,11 @@ namespace SaudaMaster.Services
         {
             CategoryAdapter.EditCategory(CategoryViewModel);
         }
+		
+		public bool CheckDuplicate(string Categoryname, int storeid)			
+	        {			
+	            return CategoryAdapter.CheckDuplicate(Categoryname, storeid);			
+	        }
     }
 
 
@@ -54,6 +59,7 @@ namespace SaudaMaster.Services
         IEnumerable<CategoryViewModel> ReturnAllCategories(int storeID);
         CategoryViewModel EditCategory(int CategoryID);
         void EditCategory(CategoryViewModel CategoryViewModel);
+		bool CheckDuplicate(string Categoryname, int storeid);
         void Delete(int CategoryID);
     }
 }

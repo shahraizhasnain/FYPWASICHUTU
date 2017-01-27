@@ -37,7 +37,6 @@ namespace SaudaMaster.Data
         public virtual DbSet<ListStoreAssociation> ListStoreAssociations { get; set; }
         public virtual DbSet<Store> Stores { get; set; }
         public virtual DbSet<SubCategory> SubCategories { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

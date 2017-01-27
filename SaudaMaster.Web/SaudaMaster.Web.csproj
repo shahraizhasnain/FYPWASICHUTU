@@ -246,6 +246,7 @@
     <Compile Include="Controllers\api\ApiController.cs" />
     <Compile Include="Controllers\BrandsController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -378,6 +379,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
+    <Content Include="Scripts\jquery-ui.css" />
+    <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.customSelect.min.js" />
     <Content Include="Scripts\jquery.dcjqaccordion.2.7.js" />
     <Content Include="Scripts\jquery.dcjqaccordion.2.7.min.js" />
@@ -422,10 +425,15 @@
     <Content Include="Views\Categories\CategoriesPartial.cshtml" />
     <Content Include="Views\Item\Index.cshtml" />
     <Content Include="Views\Item\ItemPartial.cshtml" />
+    <Content Include="Views\Item\Promotion.cshtml" />
+    <Content Include="Views\Item\PromotionPartial.cshtml" />
+    <Content Include="Views\Item\Discount.cshtml" />
+    <Content Include="Views\Item\DiscountPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\categoriesApi\" />
+    <Folder Include="Views\Customer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -2,7 +2,7 @@
 
 
 
-@using (Html.BeginForm("Create","Brands", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "Brands", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -10,28 +10,36 @@
     <div class="row">
         <div class="col-lg-12">
             <section class="panel">
-                
+
                 <header class="panel-heading">
                     Brands
-                </header>
 
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                    @*@Html.ValidationSummary(true)*@
+                </header>
                 <div class="panel-body">
                     <div>
                         @Html.HiddenFor(model => model.BrandID)
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.BrandName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.BrandName, htmlAttributes: new { @class = "control-label col-md-2"})
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.BrandName, new { htmlAttributes = new { @class = "form-control input-lg m-bot15" } })
+                            @Html.EditorFor(model => model.BrandName, new { htmlAttributes = new { @class = "form-control input-lg m-bot15", @required = "required" } })
+                            @Html.ValidationMessage("duplicate",new { @class = "text-danger" })
+
+
                             @Html.ValidationMessageFor(model => model.BrandName, "", new { @class = "text-danger" })
+
+
                         </div>
                     </div>
 
                     <div class="form-group">
                         @Html.LabelFor(model => model.BrandTitle, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.BrandTitle, new { htmlAttributes = new { @class = "form-control input-lg m-bot15" } })
+                            @Html.EditorFor(model => model.BrandTitle, new { htmlAttributes = new { @class = "form-control input-lg m-bot15", @required = "required" } })
                             @Html.ValidationMessageFor(model => model.BrandTitle, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -39,7 +47,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.BrandDescription, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.BrandDescription, new { htmlAttributes = new { @class = "form-control input-lg m-bot15" } })
+                            @Html.EditorFor(model => model.BrandDescription, new { htmlAttributes = new { @class = "form-control input-lg m-bot15", @required = "required" } })
                             @Html.ValidationMessageFor(model => model.BrandDescription, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -47,14 +55,16 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.BrandImage, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            <input type="file" name="file">
+                            <input type="file" name="file" id="fileInput" accept="image/*" required = "required">
+
                             <p class="help-block">Insert Brand Image.</p>
+
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Create" class="btn btn-info" />
+                            <input type="submit" value="Create" id="c_scat" onclick="return check()" class="btn btn-info" />
                         </div>
                     </div>
 
@@ -68,3 +78,30 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+@@
+<script type="text/javascript">
+
+    function check() {
+        var fileName = document.getElementById("fileInput").value
+        //if (fileName == "") {
+        //    alert("Browse to upload a valid File");
+        //    return false;
+       // }
+       // else
+            if (fileName.split(".")[1].toUpperCase() == "PNG")
+            return true;
+        else if (fileName.split(".")[1].toUpperCase() == "JPG")
+            return true;
+        else if (fileName.split(".")[1].toUpperCase() == "GIF")
+            return true;
+        else if (fileName.split(".")[1].toUpperCase() == "JPEG")
+            return true;
+        else {
+            alert("File with " + fileName.split(".")[1] + " is invalid. Upload a validfile ");
+            return false;
+        }
+        return true;
+    }
+
+</script>

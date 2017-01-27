@@ -1,0 +1,163 @@
+﻿@using SaudaMaster.SharedModel;
+@model SaudaMaster.SharedModel.ItemViewModel
+
+
+
+
+
+
+    @Html.AntiForgeryToken()
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+
+                <header class="panel-heading">
+                    <b>DISCOUNT</b>
+                </header>
+                @*@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+                    {
+                        <input type="text" id="txtCustomer" name="CustomerName" />
+                        <input type="hidden" id="hfCustomer" name="CustomerId" />
+                        <br /><br />
+                        <input type="submit" id="btnSubmit" value="Submit" />
+                        <br /><br />
+                        @ViewBag.Message
+                    }*@
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="panel-body">
+                    <div>
+                        @Html.HiddenFor(model => model.ItemID)
+
+                        @Html.HiddenFor(model => model.StoreID)
+
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ItemName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.ItemName, new { htmlAttributes = new { @class = "form-control input-lg m-bot15", @required = "required" ,@id="ItemName"} })*@
+                            @*<input type="text" id="ItemName" class="form-control input-lg m-bot15" />*@
+                            @Html.DropDownListFor(m => m.ItemID, new SelectList(ViewBag.List, "ItemID", "ItemName"), new { @class = "form-control input-lg m-bot15", @id="itemid" })
+
+
+                            @Html.ValidationMessage("duplicate", new { @class = "text-danger" })
+
+                            @Html.ValidationMessageFor(model => model.ItemName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ItemDiscountPercentage, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ItemDiscountPercentage, new { htmlAttributes = new { @class = "form-control input-lg m-bot15", @id="itemdiscount", @required = "required" } })
+                            @Html.ValidationMessage("duplicate", new { @class = "text-danger" })
+
+                            @Html.ValidationMessageFor(model => model.ItemDiscountPercentage, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" id="c_item" class="btn btn-info" />
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+@*}*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+@@
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+@@<link href="~/Scripts/jquery-ui.css" rel="stylesheet" />
+@@
+<script src="~/Scripts/jquery-ui.js"></script>
+<script>
+    console.log("hi");
+    $('#c_item').unbind().click(function () {
+        var ItemID = $('#itemid').val();
+        var ItemDiscPercent = $('#itemdiscount').val();
+        console.log(ItemID, ItemDiscPercent);
+        $.ajax({
+            url: "@Url.Action("EditDiscount", "Item")",
+        type: "Post",
+        dataType: "json",
+        data: { 'ItemID': ItemID, 'ItemDiscountPercentage': ItemDiscPercent },
+        success: function (data) {
+            response((data, function (item) {
+                return {item };
+            }));
+        }
+    });
+    });
+    
+
+</script>
+
+
+@*<a href="~/Scripts/jquery-1.10.2.min.map">~/Scripts/jquery-1.10.2.min.map</a>*@
+@*<script>
+
+    $(document).ready(function () {*@
+
+
+@*//$("#ItemName").keyup(function () {
+    // var item = $("#ItemName").val();
+    //    console.log(item);
+    //});*@
+
+@*$("#ItemName").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: '/Item/getitems/',
+                        data: "{ 'ItemName': '" + request.term + "'}",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return item;
+                            }))
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                select: function (e, i) {
+                    $("#ItemName").val(i.item.val);
+                },
+                minLength: 1
+            });
+        });
+
+    </script>*@
+@*<script type="text/javascript">
+    $(function () {
+        $("#ItemName").autocomplete({
+            source: "/Item/getitems",
+            minLength: 3,
+            select: function (event, ui) {
+                if (ui.item) {
+                    $("#ItemName").val(ui.item.value);
+                    $("form").submit();
+                }
+            }
+        });
+    });
+    </script>*@
+
+
+
+

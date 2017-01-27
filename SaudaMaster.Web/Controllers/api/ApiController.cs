@@ -117,5 +117,7 @@ namespace SaudaMaster.Web.Controllers.api
             var CustomerID = StoreServices.RegisterCustomer(customer);
             return CustomerID;
         }
+
+       
     }
 }

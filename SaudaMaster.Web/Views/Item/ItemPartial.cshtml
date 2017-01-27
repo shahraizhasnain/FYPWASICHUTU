@@ -25,13 +25,13 @@
 
                         @Html.HiddenFor(model => model.StoreID)
 
-                      
+
                     </div>
                     <div class="form-group">
                         <div class="col-md-2">Category</div>
                         <div class="col-md-10">
-                          @Html.DropDownListFor(m => m.CategoryID, new SelectList(ViewBag.cat, "CategoryID", "CategoryName"), new { @class = "form-control input-lg m-bot15" }) 
-                     </div>
+                            @Html.DropDownListFor(m => m.CategoryID, new SelectList(ViewBag.cat, "CategoryID", "CategoryName"), new { @class = "form-control input-lg m-bot15" })
+                        </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-2">Sub Category</div>
@@ -45,45 +45,47 @@
                             @Html.DropDownListFor(m => m.BrandID, new SelectList(ViewBag.brand, "BrandID", "BrandName"), new { @class = "form-control input-lg m-bot15" })
                         </div>
                     </div>
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.ItemName, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.ItemName, new { htmlAttributes = new { @class = "form-control input-lg m-bot15" } })
-                                @Html.ValidationMessageFor(model => model.ItemName, "", new { @class = "text-danger" })
-                            </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ItemName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ItemName, new { htmlAttributes = new { @class = "form-control input-lg m-bot15", @required = "required" } })
+                            @Html.ValidationMessage("duplicate", new { @class = "text-danger" })
+                            
+                             @Html.ValidationMessageFor(model => model.ItemName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ItemDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ItemDescription, new { htmlAttributes = new { @class = "form-control input-lg m-bot15", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.ItemDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ItemPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ItemPrice, new { htmlAttributes = new { @class = "form-control input-lg m-bot15", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.ItemPrice, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ItemAvailability, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ItemAvailability, new { htmlAttributes = new { @class = "form-control input-lg m-bot15", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.ItemAvailability, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ItemDiscountPercentage, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ItemDiscountPercentage, new { htmlAttributes = new { @class = "form-control input-lg m-bot15", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.ItemDiscountPercentage, "", new { @class = "text-danger" })
                         </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.ItemDescription, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.ItemDescription, new { htmlAttributes = new { @class = "form-control input-lg m-bot15" } })
-                                @Html.ValidationMessageFor(model => model.ItemDescription, "", new { @class = "text-danger" })
-                            </div>
-                            </div>
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.ItemPrice, htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.ItemPrice, new { htmlAttributes = new { @class = "form-control input-lg m-bot15" } })
-                                    @Html.ValidationMessageFor(model => model.ItemPrice, "", new { @class = "text-danger" })
-                                </div>
-                                </div>
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.ItemAvailability, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.EditorFor(model => model.ItemAvailability, new { htmlAttributes = new { @class = "form-control input-lg m-bot15" } })
-                                        @Html.ValidationMessageFor(model => model.ItemAvailability, "", new { @class = "text-danger" })
-                                    </div>
-                                    </div>
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.ItemDiscountPercentage, htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.EditorFor(model => model.ItemDiscountPercentage, new { htmlAttributes = new { @class = "form-control input-lg m-bot15" } })
-                                            @Html.ValidationMessageFor(model => model.ItemDiscountPercentage, "", new { @class = "text-danger" })
-                                        </div>
+                    </div>
 
-                                    </div>
-
-                                    @*<div class="form-group">
+                    @*<div class="form-group">
                             @Html.LabelFor(model => model.CategoryDescription, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
                                 @Html.EditorFor(model => model.CategoryDescription, new { htmlAttributes = new { @class = "form-control input-lg m-bot15" } })
@@ -91,22 +93,25 @@
                             </div>
                         </div>*@
 
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.ItemImage, htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            <input type="file" name="file">
-                                            <p class="help-block">Insert Item Image.</p>
-                                        </div>
-                                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ItemImage, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="file" name="file" id="fileInput" accept="image/*"  >
+                            <p class="help-block">Insert Item Image.</p>
+                            @Html.HiddenFor(model => model.ItemImage)
 
-                                    <div class="form-group">
-                                        <div class="col-md-offset-2 col-md-10">
-                                            <input type="submit" value="Create" class="btn btn-info" />
-                                        </div>
-                                    </div>
+                            <img src="@(Model.ItemImage)" height="100" />
+                        </div>
+                    </div>
 
-                                </div>
-</section>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" id="c_item" onclick="return check()" class="btn btn-info" />
+                        </div>
+                    </div>
+
+                </div>
+            </section>
         </div>
     </div>
 
@@ -115,3 +120,29 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+@@
+<script type="text/javascript">
+
+    function check() {
+        var fileName = document.getElementById("fileInput").value
+        //if (fileName == "") {
+        //    alert("Browse to upload a valid File");
+        //    return false;
+        //}
+        //else
+            if (fileName.split(".")[1].toUpperCase() == "PNG")
+            return true;
+        else if (fileName.split(".")[1].toUpperCase() == "JPG")
+            return true;
+        else if (fileName.split(".")[1].toUpperCase() == "GIF")
+            return true;
+        else if (fileName.split(".")[1].toUpperCase() == "JPEG")
+            return true;
+        else {
+            alert("File with " + fileName.split(".")[1] + " is invalid. Upload a validfile ");
+            return false;
+        }
+        return true;
+    }
+
+</script>

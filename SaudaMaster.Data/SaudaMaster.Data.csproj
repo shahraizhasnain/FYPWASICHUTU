@@ -103,9 +103,6 @@
     <Compile Include="SubCategory.cs">
       <DependentUpon>saudadb.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>saudadb.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="saudadb.edmx">

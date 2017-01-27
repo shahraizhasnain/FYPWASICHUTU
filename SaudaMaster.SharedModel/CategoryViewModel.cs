@@ -12,16 +12,18 @@ namespace SaudaMaster.SharedModel
     public class CategoryViewModel
     {
         public int CategoryID { get; set; }
+		[ForeignKey("StoreID")]
         public int StoreID { get; set; }
-        [ForeignKey("StoreID")]
 
 
 
         [Required]
+		[DataType(DataType.Text)]
         [DisplayName("Category Name")]
         public string CategoryName { get; set; }
 
         [Required]
+		[DataType(DataType.Text)]
         [DisplayName("Category Title")]
         public string CategoryDisplayName { get; set; }
 

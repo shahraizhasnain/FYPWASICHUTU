@@ -79,7 +79,8 @@ a, a:hover, a:focus {
 }
 .form-signin .form-control {
     position: relative;
-    font-size: 16px;
+    font-size: 12px !important;
+    margin-bottom: 5px !important; 
     height: auto;
     padding: 10px;
     -webkit-box-sizing: border-box;

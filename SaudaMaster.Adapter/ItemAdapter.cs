@@ -52,7 +52,7 @@ namespace SaudaMaster.Adapter
                     ItemDescription = item.ItemDescription,
                     ItemPrice = item.ItemPrice,
                     ItemAvailability = item.ItemAvailability.ToString(),
-                    ItemDiscountPercentage = item.ItemDiscountPercentage,
+                    ItemDiscountPercentage = Convert.ToDecimal(item.ItemDiscountPercentage),
                     ItemImage = item.ItemImage,
                 });
             }
@@ -75,7 +75,7 @@ namespace SaudaMaster.Adapter
                     ItemDescription = item.ItemDescription,
                     ItemPrice = item.ItemPrice,
                     ItemAvailability = item.ItemAvailability.ToString(),
-                    ItemDiscountPercentage = item.ItemDiscountPercentage,
+                    ItemDiscountPercentage = Convert.ToDecimal(item.ItemDiscountPercentage),
                     ItemImage = item.ItemImage,
                     StoreID = item.StoreID
                 });
@@ -90,11 +90,12 @@ namespace SaudaMaster.Adapter
             item.CategoryID = getitem.CategoryID;
             item.SubCategoryID = getitem.SubCategoryID;
             item.BrandID = getitem.BrandID;
+			item.StoreID = getitem.StoreID;
             item.ItemName = getitem.ItemName;
             item.ItemDescription = getitem.ItemDescription;
             item.ItemPrice = getitem.ItemPrice;
             item.ItemAvailability = Convert.ToString(getitem.ItemAvailability);
-            item.ItemDiscountPercentage = getitem.ItemDiscountPercentage;
+            item.ItemDiscountPercentage = Convert.ToDecimal(getitem.ItemDiscountPercentage);
             item.ItemImage = getitem.ItemImage;
             return item;
         }
@@ -106,6 +107,7 @@ namespace SaudaMaster.Adapter
             item.CategoryID = itemViewModel.CategoryID;
             item.SubCategoryID = itemViewModel.SubCategoryID;
             item.BrandID = itemViewModel.BrandID;
+			item.StoreID = itemViewModel.StoreID;
             item.ItemName = itemViewModel.ItemName;
             item.ItemDescription = itemViewModel.ItemDescription;
             item.ItemPrice = itemViewModel.ItemPrice;
@@ -115,6 +117,25 @@ namespace SaudaMaster.Adapter
             ItemRepository.Update(item);
             UnityOfWork.Commit();
         }
+		
+		public bool CheckDuplicate(string itemname,int subategoryid)			
+	        {			
+	            //w.r.t to storeid			
+	            //var item = ItemRepository.GetAll().Where(x => x.Category.StoreID == storeid).ToList();			
+	            //w.r.t to subcategoryid			
+	            var item = ItemRepository.GetAll().Where(x => x.SubCategoryID == subategoryid).ToList();			
+				
+	            var exist = from i in item where i.ItemName == itemname select i;			
+				
+	            if(exist.Count()>0)			
+	            {			
+	                return true;			
+	            }			
+	            else			
+	            {			
+	                return false;			
+	            }			
+      }
 
         public void DeleteItem(int itemID)
         {
@@ -134,6 +155,27 @@ namespace SaudaMaster.Adapter
             }
             UnityOfWork.Commit();
         }
+
+        public void GetDiscount(DiscountViewModel itemViewModel)
+        {
+
+            Item item = ItemRepository.GetById(itemViewModel.ItemID);
+            //item.ItemID = itemViewModel.ItemID;
+
+            item.ItemDiscountPercentage = itemViewModel.ItemDiscountPercentage;
+            ItemRepository.Update(item);
+            UnityOfWork.Commit();
+        }
+        public void GetPromotion(PromotionViewModel ViewModel)
+        {
+
+            Item item = ItemRepository.GetById(ViewModel.ItemID);
+
+            item.Promotion = ViewModel.Promotion;
+            ItemRepository.Update(item);
+            UnityOfWork.Commit();
+        }
+
     }
 }
 
