@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="asasa.in" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\shahr\\Documents\\Visual\ Studio\ 2015\\Projects\\SaudaMasterApp\ 15-1-2017\\SaudaMaster\.Web\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\shahr\\Documents\\Visual\ Studio\ 2015\\Projects\\SaudaMasterApp\ 15-1-2017\\SaudaMaster\.Web\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=188.121.44.212;Initial Catalog=saudadb;Persist Security Info=True;User ID=shahraiz;Password=153HDDisplay" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\shahr\\Documents\\Visual\ Studio\ 2015\\Projects\\SaudaMasterApp\ 15-1-2017\\SaudaMaster\.Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="saudadbEntities-Web.config Connection String" description="" value="metadata=res://*/saudadb.csdl|res://*/saudadb.ssdl|res://*/saudadb.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=188.121.44.212;Initial Catalog=saudadb;User ID=shahraiz;Password=153HDDisplay&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\shahr\\Documents\\Visual\ Studio\ 2015\\Projects\\SaudaMasterApp\ 15-1-2017\\SaudaMaster\.Web\\obj\\Release\\Package\\PackageTmp\\Views\\Web\.config$" match="/configuration/connectionStrings/add[@name='saudadbEntities']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\shahr\\Documents\\Visual\ Studio\ 2015\\Projects\\SaudaMasterApp\ 15-1-2017\\SaudaMaster\.Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='saudadbEntities']/@connectionString" />
+  </parameter>
+</parameters>

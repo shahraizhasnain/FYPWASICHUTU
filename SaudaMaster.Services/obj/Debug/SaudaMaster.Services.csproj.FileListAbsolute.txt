@@ -1,0 +1,32 @@
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp\SaudaMaster.Services\bin\Debug\SaudaMaster.Services.dll.config
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp\SaudaMaster.Services\bin\Debug\SaudaMaster.Services.dll
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp\SaudaMaster.Services\bin\Debug\SaudaMaster.Services.pdb
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp\SaudaMaster.Services\bin\Debug\SaudaMaster.Adapter.dll
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp\SaudaMaster.Services\bin\Debug\SaudaMaster.SharedModel.dll
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp\SaudaMaster.Services\bin\Debug\SaudaMaster.Infrastructure.dll
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp\SaudaMaster.Services\bin\Debug\SaudaMaster.Data.dll
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp\SaudaMaster.Services\bin\Debug\EntityFramework.dll
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp\SaudaMaster.Services\bin\Debug\SaudaMaster.Adapter.pdb
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp\SaudaMaster.Services\bin\Debug\SaudaMaster.SharedModel.pdb
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp\SaudaMaster.Services\bin\Debug\SaudaMaster.Infrastructure.pdb
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp\SaudaMaster.Services\bin\Debug\SaudaMaster.Data.pdb
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp\SaudaMaster.Services\bin\Debug\EntityFramework.xml
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp\SaudaMaster.Services\obj\Debug\SaudaMaster.Services.csprojResolveAssemblyReference.cache
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp\SaudaMaster.Services\obj\Debug\SaudaMaster.Services.dll
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp\SaudaMaster.Services\obj\Debug\SaudaMaster.Services.pdb
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\SaudaMaster.Services\bin\Debug\SaudaMaster.Services.dll.config
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\SaudaMaster.Services\bin\Debug\SaudaMaster.Services.dll
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\SaudaMaster.Services\bin\Debug\SaudaMaster.Services.pdb
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\SaudaMaster.Services\bin\Debug\SaudaMaster.Adapter.dll
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\SaudaMaster.Services\bin\Debug\SaudaMaster.Data.dll
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\SaudaMaster.Services\bin\Debug\SaudaMaster.SharedModel.dll
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\SaudaMaster.Services\bin\Debug\SaudaMaster.Infrastructure.dll
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\SaudaMaster.Services\bin\Debug\EntityFramework.dll
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\SaudaMaster.Services\bin\Debug\SaudaMaster.Adapter.pdb
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\SaudaMaster.Services\bin\Debug\SaudaMaster.Data.pdb
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\SaudaMaster.Services\bin\Debug\SaudaMaster.SharedModel.pdb
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\SaudaMaster.Services\bin\Debug\SaudaMaster.Infrastructure.pdb
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\SaudaMaster.Services\bin\Debug\EntityFramework.xml
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\SaudaMaster.Services\obj\Debug\SaudaMaster.Services.csprojResolveAssemblyReference.cache
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\SaudaMaster.Services\obj\Debug\SaudaMaster.Services.dll
+C:\Users\shahr\Documents\Visual Studio 2015\Projects\SaudaMasterApp 15-1-2017\SaudaMaster.Services\obj\Debug\SaudaMaster.Services.pdb
